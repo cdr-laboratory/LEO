@@ -1,0 +1,72 @@
+Instructions to run ensembles
+
+~~~ General ~~~~
+
+Work flow for CDR run with 1 slab parameter set
+
+1. Spin-up with closed sediment                 (SPIN1) 
+2. Spin-up with open sediment                   (SPIN2 restart from SPIN1) 
+3. Concentration forcing under RCP scenarios    (conc.o restart from SPIN2) 
+4. Emission forcing under RCP scenarios         (emis.o restart from SPIN2) 
+5. Historical run                               (hist.o restart from SPIN2) 
+6. CDR run (including CTRL without CDR)         (DAC/ESW/ECW.emis.o.XGtCO2 restart from hist.o where X is deployment rate) 
+
+Single series (1-6 above) for one slab parameter set is run by /genie-main/slab_rcp_cdr.sh.
+Ensemble is run by /genie-main/slab_loop.sh repeatedly using /genie-main/slab_rcp_cdr.sh.
+Those parameter sets that passed through screening are saved in /slab-scripts/2nd_pass_compile.save_allemis.
+
+Because the data to be produced are huge if one wishes to do all the experiments 
+(~980 slab parameter sets; 6 deployment rates; 3 CDR schemes; 4 RCP scenarios, 
+in addition to control and historical runs and 2 forcing and 2 spin-up runs for individual 4 RCPs), 
+we provide Python scripts (run with Python3) to make user-configuration and forcing files
+rather than those files themselves. 
+
+Also, shell and Python scripts are desgined so that runs that are finished and no longer necessary are removed 
+from output directory ('outputdir2' in slab_rcp_cdr.sh) with archived files are stored in a different directory 
+('archdir2' in slab_rcp_cdr.sh) than archive directory saved by cGENIE in the default setting ('archdir1' in slab_rcp_cdr.sh) 
+and extracted results files relevant to calculation of global C budget are stored in another directory
+('workdir' in slab_x_data.py).
+
+Python3 scripts are stored in /LEO/slab-scripts together with ensemble ID data (2nd_pass_compile.save_allemis)
+and basis user-configuration files from which other configs are made are stored in /LEO/genie-userconfigs/slab_spin1p5_done. 
+
+
+
+~~~ Specifics ~~~~
+To use Python and shell scripts as they are as much as possible, follow the steps below:
+
+1. Create directory /scripts in the same level as LEO (i.e., not as its subdirectory) 
+    and create a subdirectory /scripts/slab/ and subsubdirectory /scripts/slab/data. 
+        For instance, 
+        $ cd ~
+        $ mkdir scripts
+        $ cd scripts
+        $ mkdir slab
+        $ cd slab
+        $ mkdir data
+2. Copy all the files in /LEO/slab-scripts to /scripts/slab. 
+        $ cd ~/LEO/slab-scripts
+        $ cp ./* ../scripts/slab/
+3. Modify directory names in 3 scripts (slab_rcp_cdr.sh, slab_loop.sh and slab_x_data.py in ~/scripts/slab/). 
+    (3-1) In slab_rcp_cdr.sh
+        Modify 'homedir1' and 'homedir2' (L3-4). 
+            -- 'homedir2' should be the directory where /LEO/ and /scripts/ are located 
+                so that 'outputdir2' and 'archdir2' are typical cGENIE output and archive directories. 
+            -- 'homedir1' can be either the same as or different from 'homedir2' 
+                so that 'archdir1' can be a storage for arhived runs. 
+    (3-2) In slab_loop.sh 
+        Modify 'homedir2' (L3). 
+            -- 'homedir2' should be the directory where /LEO/ and /scripts/ are located 
+                so that 'pydir' corresponds to ~/scripts/slab/. 
+    (3-3) In slab_x_data.py
+        Modify 'workdir' (L6) and 'srcdir' (L36). 
+            -- 'workdir' should correspond to ~/scripts/slab/data/ created in Step 1 above. 
+            -- 'srcdir' should correspond to 'outputdir2' in Step 3-1. 
+4. Run the ensemble. 
+        $ ./slab_loop.sh
+    One also can test a series of run for one slab parameter set by 
+        $ ./slab_rcp_cdr.sh Y
+    where Y is the ID of slab parameter set. 
+    
+        
+        
