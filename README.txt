@@ -51,13 +51,14 @@
 #     LEO/
 #        ├── genie-main/
 #                ├── configs/
-#                       ├── ...
+#                       ├── muffin.CBSR.worjh2.ESW.S36x36.config
 #
-# User configuration files can be found in:
+# User configuration and forcing files are created while running the series of  
+# experiments description of which is provided in:
 #
 #     LEO/
-#        ├── genie-userconfigs/
-#                 ├── ...
+#        ├── slab-scripts/
+#                 ├── instructions.txt
 #
 #
 # A shell script for model spinup and historical/future transient simulations
