@@ -2,7 +2,7 @@ Instructions to run ensembles
 
 ~~~ General ~~~~
 
-Work flow for CDR run with 1 slab parameter set
+Workflow for CDR run with a given slab parameter set
 
 1. Spin-up with closed sediment                 (SPIN1) 
 2. Spin-up with open sediment                   (SPIN2 restart from SPIN1) 
@@ -22,17 +22,18 @@ we provide Python scripts (run with Python3) to make user-configuration and forc
 rather than those files themselves. 
 
 Also, shell and Python scripts are desgined so that runs that are finished and no longer necessary are removed 
-from output directory ('outputdir2' in slab_rcp_cdr.sh) with archived files are stored in a different directory 
+from output directory ('outputdir2' in slab_rcp_cdr.sh) with archived files being stored in a different directory 
 ('archdir2' in slab_rcp_cdr.sh) than archive directory saved by cGENIE in the default setting ('archdir1' in slab_rcp_cdr.sh) 
 and extracted results files relevant to calculation of global C budget are stored in another directory
 ('workdir' in slab_x_data.py).
 
 Python3 scripts are stored in /LEO/slab-scripts together with ensemble ID data (2nd_pass_compile.save_allemis)
-and basis user-configuration files from which other configs are made are stored in /LEO/genie-userconfigs/slab_spin1p5_done. 
+and basis user-configuration files from which other user-configs are made are stored in /LEO/genie-userconfigs/slab_spin1p5_done. 
 
 
 
-~~~ Specifics ~~~~
+~~~ Specific ~~~~
+
 To use Python and shell scripts as they are as much as possible, follow the steps below:
 
 1. Create directory /scripts in the same level as LEO (i.e., not as its subdirectory) 
@@ -47,13 +48,13 @@ To use Python and shell scripts as they are as much as possible, follow the step
 2. Copy all the files in /LEO/slab-scripts to /scripts/slab. 
         $ cd ~/LEO/slab-scripts
         $ cp ./* ../scripts/slab/
-3. Modify directory names in 3 scripts (slab_rcp_cdr.sh, slab_loop.sh and slab_x_data.py in ~/scripts/slab/). 
+3. Modify directory names in 3 scripts (slab_rcp_cdr.sh and slab_loop.sh ~/LEO/genie-main/ and slab_x_data.py in ~/scripts/slab/). 
     (3-1) In slab_rcp_cdr.sh
         Modify 'homedir1' and 'homedir2' (L3-4). 
             -- 'homedir2' should be the directory where /LEO/ and /scripts/ are located 
                 so that 'outputdir2' and 'archdir2' are typical cGENIE output and archive directories. 
             -- 'homedir1' can be either the same as or different from 'homedir2' 
-                so that 'archdir1' can be a storage for arhived runs. 
+                so that 'archdir1' can be any storage place for archived runs. 
     (3-2) In slab_loop.sh 
         Modify 'homedir2' (L3). 
             -- 'homedir2' should be the directory where /LEO/ and /scripts/ are located 
@@ -64,7 +65,7 @@ To use Python and shell scripts as they are as much as possible, follow the step
             -- 'srcdir' should correspond to 'outputdir2' in Step 3-1. 
 4. Run the ensemble. 
         $ ./slab_loop.sh
-    One also can test a series of run for one slab parameter set by 
+    One can also test a series of run for one slab parameter set by 
         $ ./slab_rcp_cdr.sh Y
     where Y is the ID of slab parameter set. 
     
