@@ -3,7 +3,7 @@ import os,sys
 import numpy as np
 
 # workdir = '../../cgenie.muffin/genie-userconfigs/'
-workdir = '/storage/coda1/p-creinhard3/0/ykanzaki3/slab-scripts/slab/data/'
+workdir = '/storage/coda1/p-creinhard3/0/ykanzaki3/scripts/slab/data/'
     
 bgdata_list = [
     'atm_pCO2'
