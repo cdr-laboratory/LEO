@@ -36,7 +36,7 @@ if [ -f "${archdir1}/${spin1d}.tar.gz" ]; then
 else
 	# else spin1 from scratch
 	# creating user-configs
-	cp "${homedir2}/cgenie.muffin/genie-userconfigs/slab_spin1p5_done/${spin1s}"  "${homedir2}/cgenie.muffin/genie-userconfigs/${spin1d}"
+	cp "${homedir2}/LEO/genie-userconfigs/slab_spin1p5_done/${spin1s}"  "${homedir2}/LEO/genie-userconfigs/${spin1d}"
 
 	# modifying user-configs
 	python3 ../../scripts/slab/mod_configs.py $spin1d $spin1d 113  "bg_par_infile_slice_name='save_timeslice_NONE.dat'"
