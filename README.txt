@@ -79,6 +79,18 @@
 #     [                           ├── ...    ]
 #     [ ------------------------------------ ]
 #
+# Forcing files for control (RCP) historical and future transients can
+# be found in:
+#
+#     [ ------------------------------------------------------------- ]
+#     [ LEO/                                                          ]                         
+#     [   ├── genie-forcings/                                         ]
+#     [              ├── worjh2.detSED.RpCO2.RpO2.RpCH4.RpN2O.RCP2p6/ ]
+#     [              ├── worjh2.detSED.RpCO2.RpO2.RpCH4.RpN2O.RCP4p5/ ]
+#     [              ├── worjh2.detSED.RpCO2.RpO2.RpCH4.RpN2O.RCP6p0/ ]
+#     [              ├── worjh2.detSED.RpCO2.RpO2.RpCH4.RpN2O.RCP8p5/ ]
+#     [ ------------------------------------------------------------- ]
+#
 # A series of Python scripts for making user configuration files and forcings
 # as well as managing output data for large ensembles can be found in:
 #
