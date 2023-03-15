@@ -55,7 +55,7 @@ def force_conc2flx(workdir,src,dst,flxsimname):
     
 def main():
 
-    workdir = '../../cgenie.muffin/genie-forcings/'
+    workdir = '../../LEO/genie-forcings/'
 
     rcps = ['2p6','4p5','6p0','8p5']
     # rcps = ['2p6']

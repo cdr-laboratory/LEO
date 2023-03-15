@@ -2,7 +2,7 @@ from shutil import copyfile
 import shutil,os,sys
 import numpy as np
 
-workdir = '../../cgenie.muffin/genie-forcings/'
+workdir = '../../LEO/genie-forcings/'
 
 var1 = 'RCP'
 var2 = 'CDR'

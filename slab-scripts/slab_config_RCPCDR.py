@@ -1,7 +1,7 @@
 from shutil import copyfile
 import sys
 
-workdir = '../../cgenie.muffin/genie-userconfigs/'
+workdir = '../../LEO/genie-userconfigs/'
 
 var1 = 'RCP'
 var2 = 'CDR'

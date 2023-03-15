@@ -2,7 +2,7 @@ from shutil import copyfile
 import numpy as np
 import sys
 
-workdir = '../../cgenie.muffin/genie-userconfigs/'
+workdir = '../../LEO/genie-userconfigs/'
 
 rcps = ['RCP2p6','RCP4p5','RCP6p0','RCP8p5']
 

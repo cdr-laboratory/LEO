@@ -21,7 +21,7 @@ def make_configs(src,dst,inlist,replacelist):
 
 
 def main():
-    workdir = '../../cgenie.muffin/genie-userconfigs/'
+    workdir = '../../LEO/genie-userconfigs/'
 
     src = workdir + sys.argv[1]
     dst = workdir + sys.argv[2]

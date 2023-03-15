@@ -2,7 +2,7 @@ from shutil import copyfile
 import numpy as np
 import sys
 
-workdir = '../../cgenie.muffin/genie-userconfigs/'
+workdir = '../../LEO/genie-userconfigs/'
 
 
 
